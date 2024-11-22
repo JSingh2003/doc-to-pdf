@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+## Setup and Running
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1. Manual Steps
 
-## Available Scripts
+1. Clone the repository:
 
-In the project directory, you can run:
+   ```bash
+   git clone https://github.com/JSingh2003/doc-to-pdf.git
+   cd Doc-to-pdf
+   ```
 
-### `npm start`
+2. Build and run:
+   ```bash
+   npm i
+   npm run start:run
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Automated Scripts
+#### `run_demo.sh`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This script sets up the entire environment, including RabbitMQ and the backend service, in Docker containers.
 
-### `npm test`
+**Script Highlights**:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Cleans up any existing Docker containers and networks.
+- Creates a custom Docker network.
 
-### `npm run build`
+**Usage**:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Make the script executable:
+   ```bash
+   chmod +x run.sh
+   ```
+2. Execute the script:
+   ```bash
+   ./run.sh
+   ```
+## Directory Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```nim
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+doc-to-pdf/
+├── backend/               # Backend service
+│   ├── uploads/           # Directory for uploaded files
+│   ├── .dockerignore      # Docker ignore rules for the backend
+│   ├── Dockerfile         # Dockerfile for the backend
+│   ├── package.json       # Dependencies for the backend
+│   ├── server.js          # Main server logic
+│
+├── frontend/              # Frontend service
+│   ├── public/            # Static assets (e.g., favicon, index.html)
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── manifest.json
+│   ├── src/               # React source code
+│   │   ├── components/    # Reusable React components
+│   │   │   ├── DocToPdfConverter.js
+│   │   │   ├── FileUploader.js
+│   │   ├── utils/         # Helper functions
+│   │   │   ├── fileHelper.js
+│   │   ├── App.css        # Styling for the app
+│   │   ├── App.js         # Main React component
+│   │   ├── index.js       # Entry point
+│   │   ├── reportWebVitals.js
+│   │   ├── setupTests.js  # Jest test setup
+│   ├── .dockerignore      # Docker ignore rules for the frontend
+│   ├── Dockerfile         # Dockerfile for the frontend
+│   ├── package.json       # Dependencies for the frontend
+│
+├── .github/
+│   ├── workflows/
+│       ├── docker-build.yml # CI/CD workflow configuration
+│
+├── k8s/                   # Kubernetes configuration files
+├── docker-compose.yml     # Docker Compose file for local development
+├── run.sh                 # Shell script for initializing services
+├── README.md              # Documentation
+                        # Project documentation
+```
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
