@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    app: frontend
+  ports:
+  - port: 80        # Port the service listens on inside the cluster
+    targetPort: 80   # Port the application listens on inside the container
+    protocol: TCP
+  type: ClusterIP    # Default type to keep it internal to the cluster

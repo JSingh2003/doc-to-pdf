@@ -1,0 +1,47 @@
+/* DocToPdfConverter.css */
+
+/* Container to center the content */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Style the file input field */
+.file-input {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Style the Convert button */
+.convert-button {
+  background-color: #6c5ce7;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.convert-button:hover {
+  background-color: #5a4cc7;
+}
+
+/* Hidden container for the docx preview */
+.hidden-container {
+  display: none;
+}
